@@ -1,17 +1,20 @@
 # gulp-task-err-handler
 
 ## description
-gulp.series, gulp.paralle error handling gulp-task.
+gulp4.series, gulp4.parallel, gulp4.task error handling gulp-task.
+
+catch error in gulp4.series, gulp4.parallel, gulp4.task,
+and call error handling function.
 
 ## install
 ```sh
 npm install --save-dev gulp-task-error-handler
 ```
 
-## sample code
+## sample code (gulp4.series)
 ```javascript
 const gulp = require('gulp');
-const errhandler = require('gulp-task-error-handler');
+const handler = require('gulp-task-error-handler');
 
 gulp.task('hello', (cb) => {
   console.log('hello');
@@ -28,15 +31,32 @@ gulp.task('gulp', (cb) => {
   throw new Error('gulp error');
 });
 
-// declare error handling code
-const domain = require('domain');
-var d = domain.create();
-d.on('error', (e) => {
-  console.log('catch error');
-});
-
 // wrapping gulp task
 // if error will be thrown, error handling code is called.
-gulp.task('run', errhandler(d, gulp.series('hello', 'world', 'gulp')));
+gulp.task('run', handler(gulp.series('hello', 'world', 'gulp')),
+  (err) => {
+    console.log('catch error');
+  }
+);
 ```
+
+## sample code (gulp4.parallel, gulp4.task)
+wrapping with 'gulp-task-error-handler'.
+
+```javascript
+gulp.task('run', handler(gulp.parallel('hello', 'world', 'gulp')),
+  (err) => {
+    console.log('catch error');
+  }
+);
+```
+
+```javascript
+gulp.task('run', handler(gulp.task('gulp')),
+  (err) => {
+    console.log('catch error');
+  }
+);
+```
+
 

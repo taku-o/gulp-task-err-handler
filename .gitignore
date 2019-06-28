@@ -1,8 +1,6 @@
 .DS_Store
 *.swp
 Thumbs.db
-/*-darwin-x64/
-*-darwin-x64.zip
 tsconfig.tsbuildinfo
 /node_modules/
 

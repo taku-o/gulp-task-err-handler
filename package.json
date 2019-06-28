@@ -1,7 +1,7 @@
 {
   "name": "gulp-task-err-handler",
   "version": "0.1.0",
-  "description": "gulp.series, gulp.paralle error handling wrapper.",
+  "description": "gulp4.series, gulp4.parallel, gulp4.task error handling gulp-task.",
   "main": "handler.js",
   "types": "types.d.ts",
   "scripts": {
@@ -15,8 +15,18 @@
     "node",
     "gulp",
     "gulp4",
+    "gulp.series",
+    "gulp.parallel",
+    "gulp.task",
     "gulp-task",
     "error handler"
+  ],
+  "files": [
+    "README.md",
+    "gulpfile.js",
+    "handler.js",
+    "package-lock.json",
+    "package.json"
   ],
   "homepage": "https://github.com/taku-o/gulp-task-err-handler",
   "bugs": {
