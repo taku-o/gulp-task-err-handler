@@ -1,1 +1,1 @@
-gulp tsc && gulp -f test/gulpfile-parallel-error.js run
+gulp tsc && gulp -f test/gulpfile-series-error.js run
