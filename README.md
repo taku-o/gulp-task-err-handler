@@ -81,14 +81,11 @@ gulp.task('package', (cb) => {
 const gulp = require('gulp');
 const handler = require('gulp-task-error-handler');
 
-gulp.task('package', (cb) => {
+gulp.task('package',
   handler(gulp.series('tsc-debug', '_rm-package', '_package-debug', '_unpacked', '_notify', '_kill'), (err) => {
-    if (err) {
-      gulp.task('_notifyError')();
-    }
-    cb(err);
-  );
-});
+    gulp.task('_notifyError')();
+  })
+);
 ```
 
 
