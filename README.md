@@ -33,10 +33,10 @@ gulp.task('gulp', (cb) => {
 
 // wrapping gulp task
 // if error will be thrown, error handling code is called.
-gulp.task('run', handler(gulp.series('hello', 'world', 'gulp')),
+gulp.task('run', handler(gulp.series('hello', 'world', 'gulp'),
   (err) => {
     console.log('catch error');
-  }
+  })
 );
 ```
 
@@ -44,18 +44,18 @@ gulp.task('run', handler(gulp.series('hello', 'world', 'gulp')),
 wrapping with 'gulp-task-error-handler'.
 
 ```javascript
-gulp.task('run', handler(gulp.parallel('hello', 'world', 'gulp')),
+gulp.task('run', handler(gulp.parallel('hello', 'world', 'gulp'),
   (err) => {
     console.log('catch error');
-  }
+  })
 );
 ```
 
 ```javascript
-gulp.task('run', handler(gulp.task('gulp')),
+gulp.task('run', handler(gulp.task('gulp'),
   (err) => {
     console.log('catch error');
-  }
+  })
 );
 ```
 
