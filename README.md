@@ -87,7 +87,7 @@ gulp.task('package', (cb) => {
       gulp.task('_notifyError')();
     }
     cb(err);
-  });
+  );
 });
 ```
 
