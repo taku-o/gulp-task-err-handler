@@ -8,14 +8,14 @@ and call error handling function.
 
 ## install
 ```sh
-npm install --save-dev gulp-task-error-handler
+npm install --save-dev gulp-task-err-handler
 ```
 
 ## sample code
 ### handle gulp4.series error
 ```javascript
 const gulp = require('gulp');
-const handler = require('gulp-task-error-handler');
+const handler = require('gulp-task-err-handler');
 
 gulp.task('hello', (cb) => {
   console.log('hello');
@@ -42,7 +42,7 @@ gulp.task('run', handler(gulp.series('hello', 'world', 'gulp'),
 ```
 
 ### handle gulp4.parallel, gulp4.task error
-wrapping with 'gulp-task-error-handler'.
+wrapping with 'gulp-task-err-handler'.
 
 ```javascript
 gulp.task('run', handler(gulp.parallel('hello', 'world', 'gulp'),
@@ -60,7 +60,7 @@ gulp.task('run', handler(gulp.task('gulp'),
 );
 ```
 
-## replace gulp3 "run-sequence" with "gulp-task-error-handler".
+## replace gulp3 "run-sequence" with "gulp-task-err-handler".
 - gulp3 run-sequence
 ```javascript
 const gulp = require('gulp');
@@ -76,10 +76,10 @@ gulp.task('package', (cb) => {
 });
 ```
 
-- replace with "gulp-task-error-handler" sample.
+- replace with "gulp-task-err-handler" sample.
 ```javascript
 const gulp = require('gulp');
-const handler = require('gulp-task-error-handler');
+const handler = require('gulp-task-err-handler');
 
 gulp.task('package',
   handler(gulp.series('tsc-debug', '_rm-package', '_package-debug', '_unpacked', '_notify', '_kill'), (err) => {
